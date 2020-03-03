@@ -1,1 +1,15 @@
+int sensorPin = A0;    // select the input pin for the sensor
+int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
+int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
 
+void setup() {
+  // solo se porcesa una vez:
+ pinMode(sensorPin, INTPUT);
+}
+
+
+
+void loop() {
+  // parte del código que se repite en bucle:
+  sensorValue = analogRead(sensorPin);
+}
