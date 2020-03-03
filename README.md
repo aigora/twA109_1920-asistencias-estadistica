@@ -1,6 +1,6 @@
 # Asistencias-estadística
 
-Vamos a realizar una tabla en la que se ordenen las asistencias a cada calse que se recogerán a traves de dos sensores que identifican las entradas y salidas en las respectivas horass
+Vamos a realizar una tabla en la que se ordenen las asistencias a cada calse que se recogerán a traves de dos sensores que identifican las entradas y salidas en las respectivas horas
 
 
 ## Integrantes del equipo
@@ -12,4 +12,4 @@ Nombres, apellidos, y usuario GitHub de los integrantes del equipo.
 
 ## Objetivos del trabajo
 
-Lista de los objetivos que se persiguen con el trabajo propuesto.
+los objetivos son identificar una entrada o salida a través de dos sensores, guardar los datos de forma ordenada en las respectivas clases a las que corresponden y mostrar dichos datos de una forma útil en una tabla que los sintetice
