@@ -5,8 +5,8 @@ int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
 
 void setup() {
   // parte de el código que solo se procesa una vez:
- pinMode(sensorPin1, INTPUT);
- pinMode(sensorPin2, INTPUT);
+ pinMode(sensorPin1, INPUT);
+ pinMode(sensorPin2, INPUT);
 }
 
 
