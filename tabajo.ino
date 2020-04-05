@@ -1,28 +1,28 @@
-int sensorPin1 = A0;    // select the input pin for the sensor
-int sensorPin2 = A1;    // select the input pin for the sensor
+int sensorPin1 = A0;    // declaración del sensor exterior conectado en el analógico 0
+int sensorPin2 = A1;    // declaración del sensor interior conectado en el analógico 1
 int ledPin = 13;        // pin al LED que nos indica el periodo de calibración de los sensores esta sucediendo
 int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
-int sensorMin = 1023;        // minimum sensor value
-int sensorMax = 0;           // maximum sensor value
+int sensorMin = 1023;        // valor mínimo del sensor 
+int sensorMax = 0;           // valor máximo del sensor
 
 void setup() {
   // parte de el código que solo se procesa una vez:
- pinMode(sensorPin1, INPUT);
- pinMode(sensorPin2, INPUT);
+ pinMode(sensorPin1, INPUT);// declaración del sensor exterior como entrada
+ pinMode(sensorPin2, INPUT);// declaración del sensor interior como entrada
  pinMode(13, OUTPUT); //declaracion del pin del LED que nos indica el periodo de calibración
  digitalWrite(13, HIGH); // al inicio del programa este LED aparecerá encendido, indicando que se inicia el periodo de calibración de distancia de los sensores
   // calibración durante los primeros 5 segundos desde el inicio del programa
   while (millis() < 5000) {
     sensorValue1 = analogRead(sensorPin1); // esta calibracion se realiza con  el sensor exterior
 
-    // record the maximum sensor value
+    // valor máximo captado por el sensor
     if (sensorValue1 > sensorMax) 
     {
       sensorMax = sensorValue1;
     }
 
-    // record the minimum sensor value
+    // valor mínimo captado por el sensor
     if (sensorValue1 < sensorMin) 
     {
       sensorMin = sensorValue1;
@@ -47,7 +47,7 @@ void loop() {
   // in case the sensor value is outside the range seen during calibration
   sensorValue1 = constrain(sensorValue1, 0, 255);
 
-  // fade the LED using the calibrated value:
+  // el LED se ilumina conforme a la calibración captada previamente:
   analogWrite(ledPin, sensorValue1);
 
   
