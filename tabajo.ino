@@ -1,5 +1,5 @@
-int sensorPin1 = A0;    // select the input pin for the sensor
-int sensorPin2 = A1;    // select the input pin for the sensor
+int sensorPin1 = A0;    // declaración del sensor exterior conectado en el analógico 0
+int sensorPin2 = A1;    // declaración del sensor interior conectado en el analógico 1
 int ledPin = 13;        // en el pin 13 se encuentra el LED que nos indica el periodo de calibración 
 int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
@@ -8,9 +8,9 @@ int sensorMax = 0;           // valor máximo del sensor
 
 void setup() {
   // parte de el código que solo se procesa una vez:
- pinMode(sensorPin1, INPUT);// declaración del sensor exterior como INPUT
- pinMode(sensorPin2, INPUT);// declaración del sensor interior como INPUT
- pinMode(13, OUTPUT); //declaracion del pin del LED que nos indica el periodo de calibración
+ pinMode(sensorPin1, INPUT);// declaración del sensor exterior como entrada
+ pinMode(sensorPin2, INPUT);// declaración del sensor interior como entrada
+ pinMode(13, OUTPUT); //declaracion del pin del LED que nos indica el periodo de calibración como salida
  digitalWrite(13, HIGH); // al inicio del programa este LED aparecerá encendido, indicando que se inicia el periodo de calibración de distancia de los sensores
   // calibración durante los primeros 5 segundos desde el inicio del programa
   while (millis() < 5000) {
