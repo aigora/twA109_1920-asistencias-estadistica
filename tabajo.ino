@@ -1,6 +1,6 @@
 int sensorPin1 = A0;    // select the input pin for the sensor
 int sensorPin2 = A1;    // select the input pin for the sensor
-int ledPin = 13;        // pin al LED que nos indica el periodo de calibración de los sensores esta sucediendo
+int ledPin = 13;        // en el pin 13 se encuentra el LED que nos indica el periodo de calibración 
 int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
 int sensorMin = 1023;        // valor mínimo del sensor 
