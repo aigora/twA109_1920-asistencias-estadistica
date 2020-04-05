@@ -38,13 +38,13 @@ void loop() {
   // parte del código que se repite en bucle:
   sensorValue1 = analogRead(sensorPin1);
   
-  Serial.println(sensorValue1);
+  Serial.println(sensorValue1); // mostrar en pantalla el valor captado por el sensor exterior
    
     
   // apply the calibration to the sensor reading
-  sensorValue1 = map(sensorValue1, sensorMin, sensorMax, 0, 255);
+  sensorValue1 = map(sensorValue1, sensorMin, sensorMax, 0, 255);// aplicar la calibración al sensor
 
-  // in case the sensor value is outside the range seen during calibration
+ // en caso de que el valor captado por el sensor este fuera del rango captado durante la calibración:
   sensorValue1 = constrain(sensorValue1, 0, 255);
 
   // el LED se ilumina conforme a la calibración captada previamente:
