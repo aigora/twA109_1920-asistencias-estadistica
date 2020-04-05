@@ -8,8 +8,8 @@ int sensorMax = 0;           // valor máximo del sensor
 
 void setup() {
   // parte de el código que solo se procesa una vez:
- pinMode(sensorPin1, INPUT);
- pinMode(sensorPin2, INPUT);
+ pinMode(sensorPin1, INPUT);// declaración del sensor exterior como INPUT
+ pinMode(sensorPin2, INPUT);// declaración del sensor interior como INPUT
  pinMode(13, OUTPUT); //declaracion del pin del LED que nos indica el periodo de calibración
  digitalWrite(13, HIGH); // al inicio del programa este LED aparecerá encendido, indicando que se inicia el periodo de calibración de distancia de los sensores
   // calibración durante los primeros 5 segundos desde el inicio del programa
