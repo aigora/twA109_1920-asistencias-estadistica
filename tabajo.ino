@@ -3,8 +3,7 @@ int sensorPin2 = A1;    // declaración del sensor interior conectado en el anal
 int ledPin = 13;        // en el pin 13 se encuentra el LED que nos indica el periodo de calibración 
 int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
-int sensorMin = 1023;        // valor mínimo del sensor 
-int sensorMax = 0;           // valor máximo del sensor
+int sensorMax = 0;           // valor máximo del sensor, parte del 0
 int c=0;               // contador de personas 
 
 void setup() {
@@ -18,16 +17,10 @@ void setup() {
   while (millis() < 5000) {
     sensorValue1 = analogRead(sensorPin1); // esta calibracion se realiza con  el sensor exterior
 
-    // valor máximo captado por el sensor
+    // valor máximo captado por el sensor, se compara con el 0 elegido previamente(sensorMax) y a partir de ahi se reasigna segun lo que capta el sensor
     if (sensorValue1 > sensorMax) 
     {
       sensorMax = sensorValue1;
-    }
-
-    // valor mínimo captado por el sensor
-    if (sensorValue1 < sensorMin) 
-    {
-      sensorMin = sensorValue1;
     }
   }
 
@@ -51,11 +44,5 @@ void loop() {
   {
     digitalWrite(13, LOW);           // apagar luz LED
   }  
- // en caso de que el valor captado por el sensor este fuera del rango captado durante la calibración:
-  sensorValue1 = constrain(sensorValue1, 0, 255);
-
-  // el LED se ilumina conforme a la calibración captada previamente:
-  analogWrite(ledPin, sensorValue1);
-
   } 
 
