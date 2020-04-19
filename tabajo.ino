@@ -34,7 +34,8 @@ void loop() {
   sensorValue1 = analogRead(sensorPin1);
   
   Serial.println(sensorValue1); // mostrar en pantalla el valor captado por el sensor exterior
-   
+  Serial.println(c); // mostrar en pantalla el contador de personas
+  
   if ( sensorValue1 < sensorMax)     // toda distancia detectada menor que el máximo lo cuenta como una persona que pasa
   { 
     digitalWrite(13, HIGH);          // encender luz LED   
