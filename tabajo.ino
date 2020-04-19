@@ -5,6 +5,7 @@ int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
 int sensorMin = 1023;        // valor mínimo del sensor 
 int sensorMax = 0;           // valor máximo del sensor
+int c=0;               // contador de personas 
 
 void setup() {
   // parte de el código que solo se procesa una vez:
@@ -12,6 +13,7 @@ void setup() {
  pinMode(sensorPin2, INPUT);// declaración del sensor interior como entrada
  pinMode(13, OUTPUT);       //declaracion del pin del LED que nos indica el periodo de calibración como salida
  digitalWrite(13, HIGH);    // al inicio del programa este LED aparecerá encendido, indicando que se inicia el periodo de calibración de distancia de los sensores
+  
   // calibración durante los primeros 5 segundos desde el inicio del programa
   while (millis() < 5000) {
     sensorValue1 = analogRead(sensorPin1); // esta calibracion se realiza con  el sensor exterior
@@ -40,14 +42,20 @@ void loop() {
   
   Serial.println(sensorValue1); // mostrar en pantalla el valor captado por el sensor exterior
    
-  sensorValue1 = map(sensorValue1, sensorMin, sensorMax, 0, 255);// aplicamos la calibración a la lectura del sensor 
-
+  if ( sensorValue1 < sensorMax)     // toda distancia detectada menor que el máximo lo cuenta como una persona que pasa
+  { 
+    digitalWrite(13, HIGH);          // encender luz LED   
+    c++;                            // incremento del contador
+  }
+  else
+  {
+    digitalWrite(13, LOW);           // apagar luz LED
+  }  
  // en caso de que el valor captado por el sensor este fuera del rango captado durante la calibración:
   sensorValue1 = constrain(sensorValue1, 0, 255);
 
   // el LED se ilumina conforme a la calibración captada previamente:
   analogWrite(ledPin, sensorValue1);
 
-  
-} 
+  } 
 
