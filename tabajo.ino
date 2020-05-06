@@ -7,6 +7,7 @@ int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
 int sensorMax = 0;           // valor máximo del sensor, parte del 0
 int c=0;               // contador de personas 
+FILE * mifichero;
 
 void setup() {
   // parte de el código que solo se procesa una vez:
@@ -29,6 +30,8 @@ void setup() {
   // al finalizar la calibración , apagamos el LED del pin 13
   digitalWrite(13, LOW);
 
+  
+  mifichero = fopen('/home/usuario/Escritorio/men.txt','a');
 
   Serial.begin (9600);
   pinMode (13,OUTPUT);
@@ -53,7 +56,7 @@ void setup() {
      }
   }
  
-
+  mifichero = fclose();
 }
 
 
