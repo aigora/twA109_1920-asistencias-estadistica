@@ -1,3 +1,5 @@
+#include <EEPROM.h>
+  
 int sensorPin1 = A0;    // declaración del sensor exterior conectado en el analógico 0
 int sensorPin2 = A1;    // declaración del sensor interior conectado en el analógico 1
 int ledPin = 13;        // en el pin 13 se encuentra el LED que nos indica el periodo de calibración 
@@ -26,6 +28,32 @@ void setup() {
 
   // al finalizar la calibración , apagamos el LED del pin 13
   digitalWrite(13, LOW);
+
+
+  Serial.begin (9600);
+  pinMode (13,OUTPUT);
+  pinMode (7,INPUT);
+
+  if (digitalRead(7)==0){
+      for (int i=0;i<=9;i++){
+          Serial.println (EEPROM.read(i));
+          delay (100);
+      }
+  }
+  else{
+     for (int i=0;i<=9;i++){
+         digitalWrite (13,HIGH);
+         delay (100);
+         int dato = analogRead(0);
+         dato = map (dato,0,1024,0,255);
+         EEPROM.write(i,dato);
+         Serial.println(dato);
+         digitalWrite(13,LOW);
+         delay(500);
+     }
+  }
+ 
+
 }
 
 
@@ -46,4 +74,3 @@ void loop() {
     digitalWrite(13, LOW);           // apagar luz LED
   }  
   } 
-
