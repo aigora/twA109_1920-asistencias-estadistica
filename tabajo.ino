@@ -1,4 +1,5 @@
-#include <EEPROM.h>
+#ifndef Asistencias_h
+#define Asistencias h
   
 int sensorPin1 = 2;    // declaración del sensor exterior conectado en el analógico 0
 int sensorPin2 = 11;    // declaración del sensor interior conectado en el analógico 1
@@ -7,7 +8,15 @@ int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
 int sensorMax = 0;           // valor máximo del sensor, parte del 0
 int c=0;               // contador de personas 
-FILE * mifichero;
+
+class Asistencias
+{
+  public:
+     void loop(int c);
+  private:
+     int SensorMax; 
+     
+};
 
 void setup() {
   // parte de el código que solo se procesa una vez:
@@ -30,33 +39,6 @@ void setup() {
   // al finalizar la calibración , apagamos el LED del pin 13
   digitalWrite(13, LOW);
 
-  
-  mifichero = fopen('/home/usuario/Escritorio/men.txt','a');
-
-  Serial.begin (9600);
-  pinMode (13,OUTPUT);
-  pinMode (7,INPUT);
-
-  if (digitalRead(7)==0){
-      for (int i=0;i<=9;i++){
-          Serial.println (EEPROM.read(i));
-          delay (100);
-      }
-  }
-  else{
-     for (int i=0;i<=9;i++){
-         digitalWrite (13,HIGH);
-         delay (100);
-         int dato = analogRead(0);
-         dato = map (dato,0,1024,0,255);
-         EEPROM.write(i,dato);
-         Serial.println(dato);
-         digitalWrite(13,LOW);
-         delay(500);
-     }
-  }
- 
-  mifichero = fclose();
 }
 
 
@@ -77,3 +59,5 @@ void loop() {
     digitalWrite(13, LOW);           // apagar luz LED
   }  
   } 
+
+  #endif
