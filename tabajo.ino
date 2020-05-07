@@ -1,6 +1,3 @@
-#ifndef Asistencias_h
-#define Asistencias h
-  
 int sensorPin1 = 2;    // declaración del sensor exterior conectado en el analógico 0
 int sensorPin2 = 11;    // declaración del sensor interior conectado en el analógico 1
 int ledPin = 13;        // en el pin 13 se encuentra el LED que nos indica el periodo de calibración 
@@ -8,15 +5,6 @@ int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
 int sensorMax = 0;           // valor máximo del sensor, parte del 0
 int c=0;               // contador de personas 
-
-class Asistencias
-{
-  public:
-     void loop(int c);
-  private:
-     int SensorMax; 
-     
-};
 
 void setup() {
   // parte de el código que solo se procesa una vez:
@@ -59,5 +47,3 @@ void loop() {
     digitalWrite(13, LOW);           // apagar luz LED
   }  
   } 
-
-  #endif
