@@ -25,26 +25,25 @@ void autoConnect(SerialPort *arduino,char *incomingData)
  int readResult;
 
 // Espera la conexión con Arduino
-while (!isConnected(arduino))
-{
-Sleep(100);
-Crear_Conexion(arduino,arduino->portName);
-}
+ while (!isConnected(arduino))
+ {
+  Sleep(100);
+  Crear_Conexion(arduino,arduino->portName);
+ }
  //Comprueba si arduino está connectado
-if (isConnected(arduino))
-{
-printf ("Conectado con Arduino en el puerto %s\n",arduino-
->portName);
-}
+ if (isConnected(arduino))
+ {
+  printf ("Conectado con Arduino en el puerto %s\n",arduino->portName);
+ }
  // Bucle de la aplicación
-while (isConnected(arduino))
-{
- readResult = readSerialPort(arduino,incomingData,
-MAX_DATA_LENGTH);
-if (readResult!=0)
- printf("%s - %d\n", incomingData,readResult);
- Sleep(10);
-}
-if (!isConnected(arduino))
- printf ("Se ha perdido la conexión con Arduino\n");
+  while (isConnected(arduino))
+  {
+    readResult = readSerialPort(arduino,incomingData,
+    MAX_DATA_LENGTH);
+    if (readResult!=0)
+       printf("%s - %d\n", incomingData,readResult);
+    Sleep(10);
+  }
+ if (!isConnected(arduino))
+   printf ("Se ha perdido la conexión con Arduino\n");
 }
