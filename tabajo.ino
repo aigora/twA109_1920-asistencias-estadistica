@@ -37,19 +37,20 @@ void setup() {
 void loop() {
   // parte del código que se repite en bucle:
   sensorValue1 = analogRead(sensorPin1);
-  
-  Serial.println(sensorValue1); // mostrar en pantalla el valor captado por el sensor exterior
+
   Serial.println(c); // mostrar en pantalla el contador de personas
   
- if ( sensorValue1 < sensorMax)     // toda distancia detectada menor que el máximo lo cuenta como una persona que pasa
-{ 
+ if ( sensorValue1 < sensorMax-50)     // toda distancia detectada menor que el máximo lo cuenta como una persona que pasa
+  { 
     digitalWrite(13, HIGH);          // encender luz LED   
-    c++;                            // incremento del contador
+    c++; // incremento del contador
+    delay(500); //tiempo que se detiene tras pasar una persona
   }
   else
   {
     digitalWrite(13, LOW);           // apagar luz LED
-  }  
+  }
+}  
   char dato;
  dato = digitalRead(ButtonPin); //lectura digital de pin
  //Configurado con resistencia de pull-up 0=Pulsado
