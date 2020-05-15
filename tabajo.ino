@@ -5,6 +5,7 @@ int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
 int sensorMax = 0;           // valor máximo del sensor, parte del 0
 int c=0;               // contador de personas 
+const int ButtonPin = 2;
 
 void setup() {
   // parte de el código que solo se procesa una vez:
@@ -26,6 +27,9 @@ void setup() {
 
   // al finalizar la calibración , apagamos el LED del pin 13
   digitalWrite(13, LOW);
+ 
+  Serial.begin(9600);
+ pinMode(ButtonPin, INPUT);
 
 }
 
@@ -37,8 +41,8 @@ void loop() {
   Serial.println(sensorValue1); // mostrar en pantalla el valor captado por el sensor exterior
   Serial.println(c); // mostrar en pantalla el contador de personas
   
-  if ( sensorValue1 < sensorMax)     // toda distancia detectada menor que el máximo lo cuenta como una persona que pasa
-  { 
+ if ( sensorValue1 < sensorMax)     // toda distancia detectada menor que el máximo lo cuenta como una persona que pasa
+{ 
     digitalWrite(13, HIGH);          // encender luz LED   
     c++;                            // incremento del contador
   }
@@ -46,4 +50,12 @@ void loop() {
   {
     digitalWrite(13, LOW);           // apagar luz LED
   }  
-  } 
+  char dato;
+ dato = digitalRead(ButtonPin); //lectura digital de pin
+ //Configurado con resistencia de pull-up 0=Pulsado
+ if (dato == LOW)
+ {
+ Serial.println("Pulsado");
+ }
+  delay (200);
+} 
