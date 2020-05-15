@@ -40,7 +40,7 @@ void loop() {
 
   Serial.println(c); // mostrar en pantalla el contador de personas
   
- if ( sensorValue1 < sensorMax-50)     // toda distancia detectada menor que el máximo lo cuenta como una persona que pasa
+ if ( sensorValue1 < sensorMax-50)     // toda distancia detectada menor que el máximo de la calibracion con un margen de 50 mm lo cuenta como una persona que pasa
   { 
     digitalWrite(13, HIGH);          // encender luz LED   
     c++; // incremento del contador
