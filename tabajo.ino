@@ -13,7 +13,7 @@ void setup() {
  pinMode(11, INPUT);// declaración del sensor interior como entrada
  pinMode(13, OUTPUT);       //declaracion del pin del LED que nos indica el periodo de calibración como salida
  digitalWrite(13, HIGH);    // al inicio del programa este LED aparecerá encendido, indicando que se inicia el periodo de calibración de distancia de los sensores
- Serial.begin(9600);
+ Serial.begin(9600);    // configuración de serie
   // calibración durante los primeros 5 segundos desde el inicio del programa
   while (millis() < 5000) {
     sensorValue1 = analogRead(sensorPin1); // esta calibracion se realiza con  el sensor exterior
