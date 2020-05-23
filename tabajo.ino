@@ -1,19 +1,18 @@
-//int sensorPin1 = 2;    // declaración del sensor exterior conectado en el analógico 0
 int sensorPin2 = 11;    // declaración del sensor interior conectado en el analógico 1
 int ledPin = 13;        // en el pin 13 se encuentra el LED que nos indica el periodo de calibración 
 int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
 int sensorMax = 0;           // valor máximo del sensor, parte del 0
 int c=0;               // contador de personas 
-//const int ButtonPin = 2;
+
 const int EchoPin = 2;
 const int TriggerPin = 3;
 
 void setup() {
   // parte de el código que solo se procesa una vez:
   
-  pinMode(TriggerPin, OUTPUT);
-  pinMode(EchoPin, INPUT)
+ pinMode(TriggerPin, OUTPUT);
+ pinMode(EchoPin, INPUT)
   
  pinMode(2, INPUT);// declaración del sensor exterior como entrada
  pinMode(11, INPUT);// declaración del sensor interior como entrada
@@ -35,7 +34,7 @@ void setup() {
   digitalWrite(13, LOW);
  
 
- pinMode(ButtonPin, INPUT);
+ Serial.begin(9600);
 
 }
 
@@ -63,7 +62,7 @@ void loop() {
     digitalWrite(13, LOW);           // apagar luz LED
   }
 }  
-  char dato;
+ /* char dato;
  dato = digitalRead(ButtonPin); //lectura digital de pin
  //Configurado con resistencia de pull-up 0=Pulsado
  if (dato == LOW)
@@ -72,7 +71,7 @@ void loop() {
  }
   delay (200);
 } 
-
+*/
 int ping (int TriggerPin, int EchoPin)
 {
   long duration, distanceCm;
