@@ -34,7 +34,7 @@ void setup() {
   // al finalizar la calibración , apagamos el LED del pin 13
   digitalWrite(13, LOW);
  
-  Serial.begin(9600);
+
  pinMode(ButtonPin, INPUT);
 
 }
