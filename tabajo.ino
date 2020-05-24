@@ -44,15 +44,15 @@ void loop() {
   
   int cm = 0;
   cm=ping(TriggerPin, EchoPin);
-  Serial.print("distancia: ");
-  Serial.println(cm);
+  //Serial.print("distancia: ");
+  //Serial.println(cm);
   delay(500);
    
   sensorValue1 = cm;
 
   //Serial.println(c); // mostrar en pantalla el contador de personas
   
- if ( sensorValue1 < sensorMax-7)     // toda distancia detectada menor que el máximo de la calibracion con un margen de 50 mm lo cuenta como una persona que pasa
+ if ( sensorValue1 < sensorMax-7)     // toda distancia detectada menor que el máximo de la calibracion con un margen de 7cm lo cuenta como una persona que pasa
   { 
     digitalWrite(13, HIGH);          // encender luz LED   
     Serial.println(1); // Imprime un 1 porque ha detectado que alguien pasa (c lee el uno e incrementa el contador)
