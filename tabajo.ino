@@ -39,9 +39,7 @@ void loop() {
   int cm = 0;
   cm=ping(TriggerPin, EchoPin);
   //Serial.print("distancia: ");
-  //Serial.println(cm);
-  delay(500);
-   
+  //Serial.println(cm);  
   sensorValue1 = cm;
 
   //Serial.println(c); // mostrar en pantalla el contador de personas
