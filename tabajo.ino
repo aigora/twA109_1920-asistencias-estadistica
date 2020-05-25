@@ -1,4 +1,4 @@
-int sensorPin2 = 11;    // declaración del sensor interior conectado en el analógico 1
+int sensorPin2 = 11;    // declaración del sensor interior conectado en el pin 11
 int ledPin = 13;        // en el pin 13 se encuentra el LED que nos indica el periodo de calibración 
 int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
@@ -32,7 +32,6 @@ void setup() {
   // al finalizar la calibración , apagamos el LED del pin 13
   digitalWrite(13, LOW);
 }
-
 
 void loop() {
   // parte del código que se repite en bucle:
