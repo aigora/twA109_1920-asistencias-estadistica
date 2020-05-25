@@ -1,4 +1,4 @@
-int sensorPin2 = 11;    // declaración del sensor interior conectado en el pin 11
+int sensorPin = 11;    // declaración del sensor interior conectado en el pin 11
 int ledPin = 13;        // en el pin 13 se encuentra el LED que nos indica el periodo de calibración 
 int sensorValue1 = 0;  // variable que se guarda, proviene del sensor exterior
 int sensorValue2 = 0;  // variable que se guarda, proviene del sensor interior
@@ -14,8 +14,7 @@ void setup() {
  pinMode(TriggerPin, OUTPUT);
  pinMode(EchoPin, INPUT)
   
- pinMode(2, INPUT);// declaración del sensor exterior como entrada
- pinMode(11, INPUT);// declaración del sensor interior como entrada
+ pinMode(11, INPUT);// declaración del sensor como entrada
  pinMode(ledpin, OUTPUT);       //declaracion del pin del LED que nos indica el periodo de calibración como salida
  digitalWrite(13, HIGH);    // al inicio del programa este LED aparecerá encendido, indicando que se inicia el periodo de calibración de distancia de los sensores
  Serial.begin(9600);    // configuración de serie
