@@ -29,13 +29,8 @@ void setup() {
       sensorMax = sensorValue1;
     }
   }
-
   // al finalizar la calibración , apagamos el LED del pin 13
   digitalWrite(13, LOW);
- 
-
- Serial.begin(9600);
-
 }
 
 
@@ -63,16 +58,7 @@ void loop() {
     digitalWrite(13, LOW);           // apagar luz LED
   }
 }
- /* char dato;
- dato = digitalRead(ButtonPin); //lectura digital de pin
- //Configurado con resistencia de pull-up 0=Pulsado
- if (dato == LOW)
- {
- Serial.println("Pulsado");
- }
-  delay (200);
-} 
-*/
+
 int ping (int TriggerPin, int EchoPin)
 {
   long duration, distanceCm;
